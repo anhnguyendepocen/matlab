@@ -11,5 +11,5 @@ XX=X'*X;
 Xy=X'*y;
 BetaHat=(inv(XX))*Xy
 
-[OLS_Beta,OLS_se]=OLS(y,X);
-[OLS_Beta,OLS_se]
+[OLS_Beta,OLS_se, CIl, CIh]=OLS(y,X);
+[OLS_Beta,OLS_se, CIl, CIh]

@@ -1,4 +1,4 @@
-function [Beta, se, beta_low, beta_high] = OLS(y,X)
+function [Beta, se] = OLS(y,X)
 %--------------------------------------------------
 % PURPOSE: perform an OLS regression
 %--------------------------------------------------
@@ -25,7 +25,6 @@ se     = diag(sqrt(v_mat));
 
 %----- (3) Calculate 95 percent confidence intervals 
 
-beta_low  = Beta - 1.96*se;
-beta_high = Beta + 1.96*se;
+
 
 return
