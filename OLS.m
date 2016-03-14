@@ -19,7 +19,7 @@ yhat   = X*Beta;
 u      = yhat - y;
 N      = length(y);
 K      = size(X, 2);
-sigma  = sigma * inv(X'*X);
+sigma  = sum(u.*u)/(N-K);
 v_mat  = sigma * inv(X'*X);
 se     = diag(sqrt(v_mat));
 
