@@ -11,6 +11,6 @@ function u = UtilityChTwo(X)
 
 x1 = X(1);
 x2 = X(2);
-u = -(x1.^0.5) .* (x2.^(0.5));
+u = -(x1^0.5) * (x2^(0.5));
 
 end

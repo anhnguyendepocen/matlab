@@ -33,9 +33,10 @@ end
 %-------- (3) Visualize results -------------------------
 
 subplot(1,2,1)
-scatter(c(:, 1), c(:,2))
+scatter(c(:, 1), c(:,2),'filled')
 xlabel('Good 1 Consumption')
 ylabel('Good 2 Consumption')
+ylim([20 30])
 
 subplot(1,2,2)
 cdfplot(c(:, 1))
