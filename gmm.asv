@@ -1,0 +1,13 @@
+clc;
+clear all;
+
+tic
+
+DataIn    = dlmread('auto.csv');
+X         = [ones(74,1) DataIn(:,2:3)];
+y         = DataIn(:,1);
+[Beta, Q] = fminsearch(@(B) GMMObjective(B,y,X),...
+            [10, 0, 0]', optimset('T
+
+
+toc

@@ -8,14 +8,16 @@ tic
 
 % Random variation in income and price 1
 
-I      = 10000;  % Income
-P      = [50, 200];
-reps   = 100;
-mu     = [0, 0];
-sigma  = [10, -4;-4, 10];
+I       = 10000;  % Income
+P       = [50, 200];
+reps    = 100;
+mu      = [0, 0];
+sigma   = [10, -4;-4, 10];
 rng default
-r      = mvnrnd(mu, sigma, reps); % r is a reps times 2 matrix
-I_shock = [r(:, 1) * I];
+r       = mvnrnd(mu, sigma, reps); % r is a reps times 2 matrix
+I_shock = [r(:, 1)];
+II      = I_shock + I;
+P_shock = [r(:, 2), zeros(reps, 1)];
 
 %----- (2) Determine optimal consumption for each
 % value of the prices -----------------------------------
@@ -27,9 +29,10 @@ opts   = optimset('algorithm', 'sqp', 'display', 'off');
 c      = zeros(reps, 2);
 
 for i = 1:reps
-    TempI   = I_shock(i, 1);
-    ub      = TempI./P;
-    c(i, :) = fmincon(@UtilityChTwo, [1, 1], P, TempI, [], [], ...
+    TempI   = I_shock(i, 1) + I;
+    TempP   = P_shock(i, :) + P;
+    ub      = TempI./TempP;
+    c(i, :) = fmincon(@UtilityChTwo, [1, 1], TempP, TempI, [], [], ...
         lb, ub, [], opts);
         
 end
@@ -45,7 +48,9 @@ ylim([20 30])
 subplot(1,2,2)
 cdfplot(c(:, 1))
 xlabel('Good 1 Consumption')
-ylabel('F(p_1)')
+ylabel('F(c_1)')
+
+scatter(c(:, 1), II)
 
 
 toc
