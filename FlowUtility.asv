@@ -3,9 +3,9 @@ function V = FlowUtility(T, Beta, C)
 % PURPOSE: calculate total u of c with additively
 % separable u fn. and discount rate Beta.
 %-------------------------------------
-% INPUTS:  C: Tx1 vector of indep variable
+% INPUTS:  C: TxM vector of indep variable
 %          T: scalar time
-%          
+%          M: number of different betas
 %          Beta: discount rate
 %-------------------------------------
 % OUTPUT:  V: -utility

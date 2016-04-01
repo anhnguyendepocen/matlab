@@ -3,7 +3,7 @@ clear all;
 
 tic 
 
-beta  = linspace(0.99, 0.2, 5)';
+beta  = linspace(0.99, 0.2, 6)';
 T     = 10;
 K1    = 100;
 lb    = eps*ones(10, 1);
@@ -24,7 +24,7 @@ end
 
 plot(1:T, con(:, 1), '--r', 1:T, con(:, 2), 'linewidth',...
       1:T, con(:, 3), '--y', 1:T, con(:, 4), 'marker',...
-      1:T, con(:, 5), '--c', 5)
+      1:T, con(:, 5), '--c', 1:T, con(:, 6), ':y', 6)
 xlabel('Time', 'FontSize', 14)
 ylabel('C_t', 'FontSize', 14)
 legend('\Beta=', '\Beta=')
