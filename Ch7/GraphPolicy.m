@@ -47,13 +47,16 @@ for t= 1:T
 end
     
 %--- (3) Output
+figure(2)
 plot([1:1:T], consum)
 ylabel('Consumption', 'FontSize', 12)
 xlabel('Time', 'FontSize', 12)
 title('Simulated Consumption Paths', 'FontSize', 16)
 
-figure(2)
+figure(3)
 hist(sum(consum, 2))
 title('Lifetime Consumption', 'FontSize', 16)
+
+
 
 toc
