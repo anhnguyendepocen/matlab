@@ -3,8 +3,6 @@
 people  =  100;
 
 epsilon = randi(2,people,T+1);
-% people                = 100;
-% epsilon               = randi(2,people,T+1);
 epsilon(epsilon == 1) = -2;
 
 vf                    = NaN(people, T);
